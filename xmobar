@@ -1,7 +1,6 @@
 -- xmobar config used by Vic Fryzel
 -- Author: Vic Fryzel
 -- http://github.com/vicfryzel/xmonad-config
--- This is setup for dual 1680x1050 monitors, with the right monitor as primary
 
 Config { 
 			font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
@@ -19,7 +18,7 @@ Config {
             		   , Run Network "wlan0" ["-t","wlan0: <rx> <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 5
                    , Run Date "%a %b %_d %k:%M" "date" 10
                    , Run StdinReader
-									 , Run Battery [] 10
+		   , Run BatteryP ["BAT0"] ["-t", "<left>%", "--", "-c", "energy_full"] 10
                    ]
       , sepChar = "%"
       , alignSep = "}{"
