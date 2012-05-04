@@ -157,6 +157,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
         , ((modMask .|. controlMask .|. shiftMask, xK_Right), sendMessage (DecreaseRight 10))
         , ((modMask .|. controlMask .|. shiftMask, xK_Down ), sendMessage (DecreaseDown  10))
         , ((modMask .|. controlMask .|. shiftMask, xK_Up   ), sendMessage (DecreaseUp    10))
+
+    -- Volume keys
+    , ((0,               0x1008ff12), spawn "amixer sset Master toggle &")
+    , ((0,               0x1008ff11), spawn "amixer set Master 2dB- unmute &")
+    , ((0,               0x1008ff13), spawn "amixer set Master 2dB+ unmute &")
     ]
     ++
  
