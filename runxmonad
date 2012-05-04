@@ -14,5 +14,7 @@ trayer --edge top --align right --SetDockType true --expand true --width 15 --he
 
 wicd-gtk --tray &
 
+udiskie &
+
 exec xmonad
 
