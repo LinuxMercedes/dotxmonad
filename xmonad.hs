@@ -252,6 +252,7 @@ myManageHook = composeAll
     , className =? "Psx.real"       --> doFloat
     , className =? "Gimp"           --> doFloat
     , className =? "Galculator"     --> doFloat
+    , className =? "Wicd-client.py" --> doFloat
     , resource  =? "Komodo_find2"   --> doFloat
     , resource  =? "compose"        --> doFloat
     , className =? "Terminal"       --> doShift "1:code"
