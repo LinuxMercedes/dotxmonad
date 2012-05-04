@@ -10,7 +10,7 @@ feh --bg-fill /home/nathan/Pictures/Wallpapers/swag.png &
 
 xscreensaver -no-splash&
 
-#gnome-settings-daemon &
+trayer --edge top --align right --SetDockType true --expand true --width 15 --height 18 --transparent true --alpha 0 --tint 0x000000 &
 
 #xmobar &
 
