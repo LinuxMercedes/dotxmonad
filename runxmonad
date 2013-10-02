@@ -6,15 +6,20 @@ setxkbmap -option terminate:ctrl_alt_bksp
 xrdb -merge .Xresources
 
 #wallpaper
-feh --bg-fill /home/nathan/Pictures/Wallpapers/Fractals\ and\ abstract\ stuff/1211833264722.jpg &
+#feh --bg-fill /home/nathan/Pictures/Wallpapers/Fractals\ and\ abstract\ stuff/1211833264722.jpg &
+feh --bg-fill /home/nathan/Pictures/mr2_rally_2.jpg &
 
 xscreensaver -no-splash&
-
-trayer --edge top --align right --SetDockType true --expand true --width 15 --height 18 --transparent true --alpha 0 --tint 0x000000 &
 
 wicd-gtk --tray &
 
 udiskie &
+
+dropboxd &
+
+skype &
+
+trayer --edge top --align right --SetDockType true --expand true --width 15 --height 15 --transparent true --alpha 0 --tint 0x000000 --widthtype percent --monitor primary &
 
 exec xmonad
 
