@@ -80,6 +80,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launch gmrun
     , ((modMask .|. controlMask, xK_l     ), spawn "xscreensaver-command -lock")
 
+		-- suspend computer
+    , ((modMask .|. controlMask, xK_s     ), spawn "systemctl suspend")
+
     -- launch dmenu
     , ((modMask,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
  
