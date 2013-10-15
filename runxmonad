@@ -8,6 +8,8 @@ xrdb -merge .Xresources
 #disable annoying beep
 xset -b
 
+xrandr --output DVI-0 --left-of DisplayPort-0 --primary
+
 #wallpaper
 feh --bg-fill /home/nathan/Pictures/Wallpapers/Fractals\ and\ abstract\ stuff/120825164572.jpg &
 #feh --bg-fill /home/nathan/Pictures/mr2_rally_2.jpg &
