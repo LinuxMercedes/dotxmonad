@@ -13,6 +13,9 @@ import XMonad.Layout.Spiral
 import XMonad.Layout.Tabbed
 import XMonad.Layout.WindowArranger
 import XMonad.Layout.ThreeColumns
+import XMonad.Layout.Reflect
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances(StdTransformers(MIRROR))
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 
@@ -134,6 +137,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modMask              , xK_period), sendMessage (IncMasterN (-1)))
  
+	  -- Mirror, reflect around x or y axis
+		, ((modMask							 , xK_m), sendMessage $ Toggle MIRROR)
+		, ((modMask							 , xK_x), sendMessage $ Toggle REFLECTX)
+		, ((modMask							 , xK_y), sendMessage $ Toggle REFLECTY)
+
     -- toggle the status bar gap
     -- TODO, update this binding with avoidStruts , ((modMask              , xK_b     ),
  
@@ -218,7 +226,11 @@ myTabConfig = defaultTheme {   activeBorderColor = "#cd8b00"
                              , inactiveBorderColor = "#7C7C7C"
                              , inactiveTextColor = "#EEEEEE"
                              , inactiveColor = "#000000" }
-myLayout = avoidStruts $ windowArrange (tiled ||| Mirror tiled ||| ThreeCol 1 (3/100) (1/3) ||| tabbed shrinkText myTabConfig ||| Full ||| spiral (6/7))
+myLayout = avoidStruts $ 
+					 mkToggle(single MIRROR) $
+					 mkToggle(single REFLECTX) $
+					 mkToggle(single REFLECTY) $
+           windowArrange (tiled ||| ThreeCol 1 (3/100) (1/3) ||| tabbed shrinkText myTabConfig ||| Full )
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
