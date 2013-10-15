@@ -233,7 +233,7 @@ myLayout = avoidStruts $
 					 mkToggle(single MIRROR) $
 					 mkToggle(single REFLECTX) $
 					 mkToggle(single REFLECTY) $
-           windowArrange (tiled ||| ThreeCol 1 (3/100) (1/3) ||| tabbed shrinkText myTabConfig ||| Full )
+           windowArrange (tiled ||| ThreeCol 1 (3/100) (1/3) ||| tabbed shrinkText myTabConfig ||| Full ||| spiral (6/7))
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
