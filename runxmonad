@@ -22,7 +22,7 @@ dropboxd &
 
 skype &
 
-trayer --edge top --align right --SetDockType true --expand true --width 16 --height 16 --transparent true --alpha 0 --tint 0x000000 --widthtype percent --monitor 0 &
+trayer --edge top --align right --SetDockType true --expand true --width 154 --height 16 --transparent true --alpha 0 --tint 0x000000 --widthtype pixel --monitor 0 &
 
 exec xmonad
 
