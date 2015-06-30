@@ -7,21 +7,21 @@ Config {
 --			font = "xft:Fixed-8"
       , bgColor = "#000000"
       , fgColor = "#ffffff"
-			, position = TopW L 85
+			, position = TopW L 92
       , lowerOnStart = True
 			, commands = [ Run Weather "KVIH" ["-t","Rolla: <tempF>F","-L","60","-H","80","--normal","green","--high","red","--low","lightblue"] 3600
                    , Run Cpu ["-L","3","-H","50","--normal","#CEFFAC","--high","#FFB6B0"] 10
 --                   , Run MultiCpu ["-t","Cpu: <total0><total1><total2><total3>","-L","3","-H","50","--normal","#CEFFAC","--high","#FFB6B0","-w","5"] 10
                    , Run Memory ["-t","Mem: <usedratio>%"] 10
                    , Run Swap [] 10
-            		   , Run Network "eth0" ["-t","eth0: <rx> <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 5
-            		   , Run Network "wlan0" ["-t","wlan0: <rx> <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 5
+            		   , Run Network "em1" ["-t","eth0: <rx> <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 5
                    , Run Date "%a %b %_d %k:%M" "date" 10
                    , Run StdinReader
 		   , Run BatteryP ["BAT0"] ["-t", "<left>%"] 10
+			 , Run Com "agenda" [] "agenda" 600
                    ]
       , sepChar = "%"
       , alignSep = "}{"
-      , template = "%battery% | %cpu% | %memory% - %swap% | %eth0% - %wlan0%  }{ <fc=#FFFFCC>%date%</fc> | %KVIH%"
+      , template = "%battery% | %cpu% | %memory% - %swap% | %em1% }{ %agenda% | <fc=#FFFFCC>%date%</fc> | %KVIH%"
       }
 
