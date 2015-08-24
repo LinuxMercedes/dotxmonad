@@ -22,9 +22,19 @@ udiskie &
 
 dropboxd &
 
-skype &
-
 trayer --edge top --align right --SetDockType true --expand true --width 154 --height 16 --transparent true --alpha 0 --tint 0x000000 --widthtype pixel --monitor 0 &
+
+/usr/bin/setxkbmap -option "caps:swapescape"
+
+#export http_proxy=http://nathan:HAL461@proxy.nathanjar.us:5123/
+#export https_proxy=$http_proxy
+#export ftp_proxy=$http_proxy
+#export rsync_proxy=$http_proxy
+#export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+#export HTTP_PROXY=$http_proxy
+#export FTP_PROXY=$http_proxy
+#export RSYNC_PROXY=$http_proxy
+#export NO_PROXY=$no_proxy
 
 exec xmonad
 
