@@ -3,15 +3,17 @@
 #enable ctrl-alt-backspace
 setxkbmap -option terminate:ctrl_alt_bksp
 
-xrdb -merge .Xresources
+xrdb -merge .Xresources &
 
 #disable annoying beep
-xset -b
+xset -b &
 
-xrandr --output DVI-0 --left-of DisplayPort-0 --primary
+#xrandr --output DVI-0 --left-of DisplayPort-0 --primary
 
 #wallpaper
-feh --bg-fill /home/nathan/Pictures/Wallpapers/Fractals\ and\ abstract\ stuff/120825164572.jpg &
+feh --bg-max /home/nathan/Pictures/Wallpapers/153-true-poetry-01.jpg &
+#feh --bg-fill /home/nathan/Pictures/Wallpapers/TRON_GFX_PC_07.png &
+#feh --bg-fill /home/nathan/Pictures/Wallpapers/Fractals\ and\ abstract\ stuff/120825164572.jpg &
 #feh --bg-fill /home/nathan/Pictures/mr2_rally_2.jpg &
 
 xscreensaver -no-splash&
@@ -20,9 +22,9 @@ wicd-gtk --tray &
 
 udiskie &
 
-dropboxd &
+dropbox &
 
-trayer --edge top --align right --SetDockType true --expand true --width 154 --height 16 --transparent true --alpha 0 --tint 0x000000 --widthtype pixel --monitor 0 &
+trayer --edge top --align right --SetDockType true --expand true --width 154 --height 16 --transparent true --alpha 0 --tint 0x000000 --widthtype pixel --monitor 0 --SetPartialStrut true &
 
 /usr/bin/setxkbmap -option "caps:swapescape"
 
