@@ -18,6 +18,7 @@ import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances(StdTransformers(MIRROR))
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
+import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -172,9 +173,13 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. controlMask .|. shiftMask, xK_Up   ), sendMessage (DecreaseUp    10))
 
     -- Volume keys
-    , ((0,               0x1008ff12), spawn "amixer sset Master toggle &")
-    , ((0,               0x1008ff11), spawn "amixer set Master 2dB- unmute &")
-    , ((0,               0x1008ff13), spawn "amixer set Master 2dB+ unmute &")
+    , ((0,               xF86XK_AudioMute       ), spawn "amixer sset Master toggle &")
+    , ((0,               xF86XK_AudioLowerVolume), spawn "amixer set Master 2dB- unmute &")
+    , ((0,               xF86XK_AudioRaiseVolume), spawn "amixer set Master 2dB+ unmute &")
+
+    -- Brightness
+    , ((0,               xF86XK_MonBrightnessUp  ), spawn "xbacklight -inc 5 &")
+    , ((0,               xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5 &")
     ]
     ++
 
