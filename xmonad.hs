@@ -81,10 +81,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launch a terminal
     [ ((modMask .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch gmrun
+    -- lock screen
     , ((modMask .|. controlMask, xK_l     ), spawn "xscreensaver-command -lock")
 
-		-- suspend computer
+    -- suspend computer
     , ((modMask .|. controlMask, xK_s     ), spawn "systemctl suspend")
 
     -- launch dmenu
@@ -142,10 +142,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modMask              , xK_period), sendMessage (IncMasterN (-1)))
 
-	  -- Mirror, reflect around x or y axis
-		, ((modMask							 , xK_m), sendMessage $ Toggle MIRROR)
-		, ((modMask							 , xK_x), sendMessage $ Toggle REFLECTX)
-		, ((modMask							 , xK_y), sendMessage $ Toggle REFLECTY)
+    -- Mirror, reflect around x or y axis
+    , ((modMask               , xK_m), sendMessage $ Toggle MIRROR)
+    , ((modMask               , xK_x), sendMessage $ Toggle REFLECTX)
+    , ((modMask               , xK_y), sendMessage $ Toggle REFLECTY)
 
     -- toggle the status bar gap
     -- TODO, update this binding with avoidStruts , ((modMask              , xK_b     ),
@@ -156,8 +156,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Restart xmonad
     , ((modMask              , xK_q     ), restart "xmonad" True)
 
-		-- windowArranger keybindings
-		, ((modMask .|. controlMask              , xK_s    ), sendMessage  Arrange         )
+    -- windowArranger keybindings
+    , ((modMask .|. controlMask              , xK_s    ), sendMessage  Arrange         )
     , ((modMask .|. controlMask .|. shiftMask, xK_s    ), sendMessage  DeArrange       )
     , ((modMask .|. controlMask              , xK_Left ), sendMessage (MoveLeft      10))
     , ((modMask .|. controlMask              , xK_Right), sendMessage (MoveRight     10))
