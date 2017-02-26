@@ -18,6 +18,7 @@ import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances(StdTransformers(MIRROR))
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
+import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -80,10 +81,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- launch a terminal
     [ ((modMask .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch gmrun
+    -- lock screen
     , ((modMask .|. controlMask, xK_l     ), spawn "xscreensaver-command -lock")
 
-		-- suspend computer
+    -- suspend computer
     , ((modMask .|. controlMask, xK_s     ), spawn "systemctl suspend")
 
     -- launch dmenu
@@ -141,10 +142,10 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Deincrement the number of windows in the master area
     , ((modMask              , xK_period), sendMessage (IncMasterN (-1)))
 
-	  -- Mirror, reflect around x or y axis
-		, ((modMask							 , xK_m), sendMessage $ Toggle MIRROR)
-		, ((modMask							 , xK_x), sendMessage $ Toggle REFLECTX)
-		, ((modMask							 , xK_y), sendMessage $ Toggle REFLECTY)
+    -- Mirror, reflect around x or y axis
+    , ((modMask               , xK_m), sendMessage $ Toggle MIRROR)
+    , ((modMask               , xK_x), sendMessage $ Toggle REFLECTX)
+    , ((modMask               , xK_y), sendMessage $ Toggle REFLECTY)
 
     -- toggle the status bar gap
     -- TODO, update this binding with avoidStruts , ((modMask              , xK_b     ),
@@ -155,8 +156,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     -- Restart xmonad
     , ((modMask              , xK_q     ), restart "xmonad" True)
 
-		-- windowArranger keybindings
-		, ((modMask .|. controlMask              , xK_s    ), sendMessage  Arrange         )
+    -- windowArranger keybindings
+    , ((modMask .|. controlMask              , xK_s    ), sendMessage  Arrange         )
     , ((modMask .|. controlMask .|. shiftMask, xK_s    ), sendMessage  DeArrange       )
     , ((modMask .|. controlMask              , xK_Left ), sendMessage (MoveLeft      10))
     , ((modMask .|. controlMask              , xK_Right), sendMessage (MoveRight     10))
@@ -172,9 +173,13 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((modMask .|. controlMask .|. shiftMask, xK_Up   ), sendMessage (DecreaseUp    10))
 
     -- Volume keys
-    , ((0,               0x1008ff12), spawn "amixer sset Master toggle &")
-    , ((0,               0x1008ff11), spawn "amixer set Master 2dB- unmute &")
-    , ((0,               0x1008ff13), spawn "amixer set Master 2dB+ unmute &")
+    , ((0,               xF86XK_AudioMute       ), spawn "amixer sset Master toggle &")
+    , ((0,               xF86XK_AudioLowerVolume), spawn "amixer set Master 2dB- unmute &")
+    , ((0,               xF86XK_AudioRaiseVolume), spawn "amixer set Master 2dB+ unmute &")
+
+    -- Brightness
+    , ((0,               xF86XK_MonBrightnessUp  ), spawn "xbacklight -inc 5 &")
+    , ((0,               xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5 &")
     ]
     ++
 
