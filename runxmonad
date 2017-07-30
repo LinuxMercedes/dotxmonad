@@ -1,4 +1,5 @@
 #!/bin/bash
+export PATH=~/bin:$PATH
 
 #enable ctrl-alt-backspace
 setxkbmap -option terminate:ctrl_alt_bksp
